@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: db-pento
+    environment:
+      POSTGRES_DB: "${DATABASE_NAME}"
+      POSTGRES_USER: "${DATABASE_USER}"
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
+    ports:
+      - "${DATABASE_PORT}:5432"
+  app:
+    container_name: app-pento
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    command: ["./scripts/wait-for-it.sh", "db:5432", "--", "make", "watch"]
+    environment:
+      DATABASE_HOST: db
+    volumes:
+      - ./:/go/src/github.com/markelog/pento/back
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "${PORT}:${PORT}"
