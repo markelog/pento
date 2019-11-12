@@ -11,7 +11,7 @@ import (
 	"github.com/qor/validations"
 )
 
-const enableLogs = true
+const enableLogs = false
 
 // Up database
 func Up() *gorm.DB {
