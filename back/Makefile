@@ -1,6 +1,6 @@
 install:
 	@echo "[+] installing dependencies"
-	@dep ensure
+	@go get -v -t ./...
 .PHONY: install
 
 start: install

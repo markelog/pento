@@ -11,8 +11,7 @@ This project intendent to be looked at for inspiration reasons (mainly mine :-).
 In order to check out this project you need to open to terminal sessions, one for backend and the other for frontend.
 
 ### Back
-Requires installed `docker` stuff, `make` and `Go` language on your machine.
-(I really should switch to `go mod` right? :-)
+Requires installed `docker` stuff, `make` and `Go` language on your machine
 ```
 $ cd back && cp .env.template .env && make install dev
 ```
