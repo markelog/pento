@@ -18,7 +18,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Profile({ user, status }) {
+
+function Index({ user, status }) {
   const classes = useStyles();
 
   const [tracks, setTracks] = useState([]);
@@ -52,7 +53,7 @@ function Profile({ user, status }) {
   );
 }
 
-Profile.getInitialProps = async ({ req, res }) => {
+Index.getInitialProps = async ({ req, res }) => {
   const data = await getUser(req);
 
   // Redirect to login if user is not there
@@ -67,4 +68,4 @@ Profile.getInitialProps = async ({ req, res }) => {
   return data;
 };
 
-export default Profile;
+export default Index;
