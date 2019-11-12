@@ -13,13 +13,16 @@ In order to check out this project you need to open to terminal sessions, one fo
 ### Back
 Requires installed `docker` stuff, `make` and `Go` language on your machine
 ```
-$ cd back && cp .env.template .env && make install dev
+$ cd back && cp .env.example .env && make install dev
 ```
 
 ### Front
 Only `Node.js` is required :), no tests or typescript – :(( I suck, haven't had the time
 
 ```bash
-$ cd front && cp .env.template .env && npm i && npm run dev
+$ cd front && cp .env.example .env && npm i && npm run dev
 ```
 
+### Then
+
+And then you can check out the [`app`](http://localhost:3000)
