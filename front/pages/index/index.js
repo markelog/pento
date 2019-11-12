@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 function Index({ user, status }) {
   const classes = useStyles();
 
