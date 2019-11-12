@@ -9,7 +9,7 @@ matrix:
         - 1.13
       os: linux
       dist: bionic
-      script: "cd back && make install test"
+      script: "cd back && cp .env.example .env && make install test"
 
     - language: node_js
       node_js:
