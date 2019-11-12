@@ -9,8 +9,8 @@ import Layout from "../../components/layout";
 import StartStop from "../../components/start-stop";
 import Calendar from "../../components/calendar";
 
-import {setStatus} from "./tracker"
-import { getTracks } from "./tracks"
+import { setStatus } from "./tracker";
+import { getTracks } from "./tracks";
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -34,7 +34,7 @@ function Profile({ user, status }) {
 
   function update(active, name) {
     if (active === false) {
-      requestTracks()
+      requestTracks();
     }
     setStatus(user.email, active, name);
   }
@@ -45,11 +45,7 @@ function Profile({ user, status }) {
         logout
       </Link>
       <Layout user={user}>
-        <StartStop
-          email={user.email}
-          active={status.active}
-          onClick={update}
-        />
+        <StartStop email={user.email} active={status.active} onClick={update} />
       </Layout>
       <Calendar email={user.email} events={tracks} />
     </>
