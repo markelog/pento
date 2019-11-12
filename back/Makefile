@@ -1,6 +1,6 @@
 install:
 	@echo "[+] installing dependencies"
-	@go get -v -t ./...
+	@go mod download
 .PHONY: install
 
 start: install
