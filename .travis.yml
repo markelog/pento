@@ -5,13 +5,10 @@ matrix:
   include:
     - env: GO111MODULE=on
       language: go
+      go: 
+        - 1.13
       os: linux
       dist: bionic
-      before_install:
-        # Install dep
-        # Cause of https://github.com/golang/dep/issues/1846
-        - mkdir -p $HOME/gopath/bin
-        - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
       script: "cd back && make install test"
 
     - language: node_js
