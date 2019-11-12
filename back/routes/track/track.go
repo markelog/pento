@@ -23,12 +23,12 @@ var schema = gojsonschema.NewStringLoader(`{
 	"type": "object",
 	"properties": {
 		"email": {"type": "string", "format": "email"},
-		"active": {"type": "boolean"},
+		"active": {"type": "boolean", "default": true},
 		"name": {"type": "string"},
 		"start": {"type": ["string", "null"], "format": "date-time"},
 		"stop": {"type": ["string", "null"], "format": "date-time"}
 	},
-	"required": ["email", "active"],
+	"required": ["email"],
 	"oneOf": [
 		{
 			"required": ["start"]

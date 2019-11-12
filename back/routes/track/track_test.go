@@ -71,32 +71,6 @@ func TestBothStartStopPresent(t *testing.T) {
 		Elements("(root): Must validate one and only one schema (oneOf)")
 }
 
-func TestActivePresent(t *testing.T) {
-	defer teardown()
-	req := request.Up(app, t)
-
-	data := map[string]interface{}{
-		"email": "markelog@gmail.com",
-		"name":  "test",
-		"start": "2014-01-08T08:54:44+01:00",
-	}
-
-	test := req.POST("/tracks").
-		WithHeader("Content-Type", "application/json").
-		WithJSON(data).
-		Expect().
-		Status(http.StatusBadRequest)
-
-	json := test.JSON()
-
-	json.Schema(schema.Response)
-
-	json.Object().
-		Value("payload").Object().
-		Value("errors").Array().
-		Elements("(root): active is required")
-}
-
 func TestSuccess(t *testing.T) {
 	defer teardown()
 	req := request.Up(app, t)

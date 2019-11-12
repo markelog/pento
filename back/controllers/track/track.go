@@ -130,7 +130,7 @@ func (track *Track) List(email string) ([]*ListValue, error) {
 	).QueryExpr()
 
 	err := track.db.Select("id, name, start, stop").Where(
-		"user_id = (?)",
+		"user_id = (?) AND stop IS NOT NULL",
 		user,
 	).Find(&tracks).Error
 
