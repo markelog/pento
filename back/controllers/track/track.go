@@ -39,12 +39,12 @@ func (track *Track) Create(args *CreateArgs) error {
 		tx  = track.db.Begin()
 	)
 
-	check, err := user.New(db).Status(args.Email)
-	if err != nil {
+	check, err := user.New(track.db).Status(args.Email)
+	if err != nil && gorm.IsRecordNotFoundError(err) == false {
 		return err
 	}
 
-	if check.Active == args.Active {
+	if check != nil && check.Active == args.Active {
 		return errors.New("User already in that state")
 	}
 

@@ -101,7 +101,7 @@ func Up(app *iris.Application, db *gorm.DB, log *logrus.Logger) {
 
 			ctx.StatusCode(iris.StatusBadRequest)
 			ctx.JSON(iris.Map{
-				"active":  "failed",
+				"status":  "failed",
 				"message": "Can't track ya",
 				"payload": iris.Map{},
 			})
@@ -116,7 +116,7 @@ func Up(app *iris.Application, db *gorm.DB, log *logrus.Logger) {
 
 		ctx.StatusCode(iris.StatusOK)
 		ctx.JSON(iris.Map{
-			"active":  "created",
+			"status":  "created",
 			"message": "Yey!",
 			"payload": iris.Map{},
 		})

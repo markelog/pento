@@ -6,6 +6,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
 	"github.com/kataras/iris/v12"
 
@@ -81,7 +82,7 @@ func TestDuplicative(t *testing.T) {
 		"active": true,
 	}
 
-	project := req.POST("/tracks").
+	req.POST("/tracks").
 		WithHeader("Content-Type", "application/json").
 		WithJSON(data).
 		Expect().
@@ -97,10 +98,10 @@ func TestDuplicative(t *testing.T) {
 
 	json.Schema(schema.Response)
 
+	spew.Dump(json.Object())
 	json.Object().
-		Value("payload").Object().
-		Value("errors").Array().
-		Elements("User already in that state")
+		Value("message").
+		Equal("Can't track ya")
 }
 
 func TestSuccess(t *testing.T) {
@@ -122,6 +123,32 @@ func TestSuccess(t *testing.T) {
 	project.JSON().Schema(schema.Response)
 }
 
+func TestNotFoundUntilResolvedList(t *testing.T) {
+	defer teardown()
+	teardown()
+	req := request.Up(app, t)
+
+	data := map[string]interface{}{
+		"email":  "markelog@gmail.com",
+		"name":   "sup",
+		"start":  "2014-01-08T08:54:44+01:00",
+		"active": true,
+	}
+
+	req.POST("/tracks").
+		WithHeader("Content-Type", "application/json").
+		WithJSON(data).
+		Expect().
+		Status(http.StatusOK)
+
+	result := req.GET("/tracks/markelog@gmail.com").
+		Expect().
+		Status(http.StatusNotFound).
+		JSON()
+
+	result.Schema(schema.Response)
+}
+
 func TestList(t *testing.T) {
 	defer teardown()
 	teardown()
@@ -132,6 +159,19 @@ func TestList(t *testing.T) {
 		"name":   "sup",
 		"start":  "2014-01-08T08:54:44+01:00",
 		"active": true,
+	}
+
+	req.POST("/tracks").
+		WithHeader("Content-Type", "application/json").
+		WithJSON(data).
+		Expect().
+		Status(http.StatusOK)
+
+	data = map[string]interface{}{
+		"email":  "markelog@gmail.com",
+		"name":   "sup",
+		"stop":   "2014-01-08T08:55:44+01:00",
+		"active": false,
 	}
 
 	req.POST("/tracks").
