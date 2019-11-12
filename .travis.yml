@@ -3,8 +3,7 @@ os:
 
 matrix:
   include:
-    - env: "BACK=true"
-      language: go
+    - language: go
       os: linux
       dist: bionic
       before_install:
@@ -14,8 +13,7 @@ matrix:
         - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
       script: "cd back && make install test"
 
-    - env: "FRONT=true"
-      language: node_js
+    - language: node_js
       node_js:
         - 12
       os: linux
