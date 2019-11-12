@@ -3,7 +3,8 @@ os:
 
 matrix:
   include:
-    - language: go
+    - env: GO111MODULE=on
+      language: go
       os: linux
       dist: bionic
       before_install:
