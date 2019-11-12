@@ -1,4 +1,4 @@
-# Time Tracker or something
+# Time Tracker or something [![Build Status](https://travis-ci.org/markelog/pento.svg?branch=master)](https://travis-ci.org/markelog/pento)
 
 > this is just for fun kinda situation
 
