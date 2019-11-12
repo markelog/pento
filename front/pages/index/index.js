@@ -25,6 +25,7 @@ function Index({ user, status }) {
 
   const requestTracks = async () => {
     const data = await getTracks(user.email);
+    
     setTracks(data);
   };
 
@@ -32,11 +33,14 @@ function Index({ user, status }) {
     requestTracks();
   }, [setTracks]);
 
-  function update(active, name) {
+  async function update(active, name) {
+    setStatus(user.email, active, name).then(() => {
+
+
     if (active === false) {
       requestTracks();
     }
-    setStatus(user.email, active, name);
+    });
   }
 
   return (

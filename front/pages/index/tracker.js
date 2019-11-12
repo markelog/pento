@@ -8,7 +8,7 @@ function now() {
 }
 
 function send(body) {
-  fetch(`${API}/tracks`, {
+  return fetch(`${API}/tracks`, {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
@@ -19,22 +19,20 @@ function send(body) {
   });
 }
 
-export function setStatus(email, status, name) {
-  if (status) {
-    send({
+export function setStatus(email, active, name) {
+  if (active) {
+    return send({
       email,
       name,
-      active: status,
+      active,
       start: now()
     });
-
-    return;
   }
 
-  send({
+  return send({
     email,
     name,
-    active: status,
+    active,
     stop: now()
   });
 }
