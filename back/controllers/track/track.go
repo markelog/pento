@@ -62,7 +62,8 @@ func (track *Track) start(tx *gorm.DB, args *CreateArgs) error {
 	}
 
 	err := tx.Where(models.User{
-		Email:  args.Email,
+		Email: args.Email,
+	}).Assign(models.User{
 		Active: args.Active,
 	}).FirstOrCreate(&user).Error
 	if err != nil {
@@ -111,23 +112,24 @@ func (track *Track) stop(tx *gorm.DB, args *CreateArgs) error {
 
 // ListValue result value for List() method
 type ListValue struct {
+	ID    uint       `json:"id"`
 	Name  string     `json:"name"`
 	Start *time.Time `json:"start"`
 	Stop  *time.Time `json:"stop"`
 }
 
 // List Tracks
-func (track *Track) List(email string) ([]ListValue, error) {
+func (track *Track) List(email string) ([]*ListValue, error) {
 	var (
 		tracks []models.Track
-		result []ListValue
+		result []*ListValue
 	)
 
 	user := track.db.Table("users").Select("id").Where(
 		"email = ?", email,
 	).QueryExpr()
 
-	err := track.db.Select("name, start, stop").Where(
+	err := track.db.Select("id, name, start, stop").Where(
 		"user_id = (?)",
 		user,
 	).Find(&tracks).Error
@@ -137,7 +139,8 @@ func (track *Track) List(email string) ([]ListValue, error) {
 	}
 
 	for _, track := range tracks {
-		result = append(result, ListValue{
+		result = append(result, &ListValue{
+			ID:    track.ID,
 			Start: track.Start,
 			Stop:  track.Stop,
 			Name:  track.Name,

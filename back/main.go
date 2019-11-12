@@ -10,6 +10,7 @@ import (
 	"github.com/markelog/pento/back/routes"
 	"github.com/markelog/pento/back/routes/common"
 	"github.com/markelog/pento/back/routes/track"
+	"github.com/markelog/pento/back/routes/user"
 	"github.com/sirupsen/logrus"
 )
 
@@ -30,6 +31,7 @@ func main() {
 	defer db.Close()
 
 	track.Up(app, db, log)
+	user.Up(app, db, log)
 	common.Up(app, db, log)
 
 	log.WithFields(logrus.Fields{

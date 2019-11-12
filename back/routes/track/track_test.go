@@ -145,24 +145,4 @@ func TestList(t *testing.T) {
 		Element(0).Object()
 
 	element.Value("name").Equal("sup")
-	element.Value("active").Equal(true)
 }
-
-// func TestAbsentList(t *testing.T) {
-// 	defer teardown()
-// 	teardown()
-// 	req := request.Up(app, t)
-
-// 	response := req.GET("/projects").
-// 		Expect().
-// 		Status(http.StatusNotFound)
-
-// 	json := response.JSON()
-
-// 	json.Schema(schema.Response)
-
-// 	json.Schema(schema.Response)
-// 	json.Object().Value("payload").Object().Empty()
-// 	json.Object().Value("message").Equal("Not found")
-// 	json.Object().Value("status").Equal("failed")
-// }

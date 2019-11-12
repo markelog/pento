@@ -141,13 +141,13 @@ func Up(app *iris.Application, db *gorm.DB, log *logrus.Logger) {
 		}
 
 		if len(tracks) == 0 {
-			log.Error("Can't find any tracks")
+			log.Warn("Can't find any tracks")
 
 			ctx.StatusCode(iris.StatusNotFound)
 			ctx.JSON(iris.Map{
 				"active":  "failed",
 				"message": "Not found",
-				"payload": iris.Map{},
+				"payload": []string{},
 			})
 
 			return
@@ -164,4 +164,5 @@ func Up(app *iris.Application, db *gorm.DB, log *logrus.Logger) {
 
 		return
 	})
+
 }
