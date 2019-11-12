@@ -3,59 +3,24 @@ module github.com/markelog/pento/back
 go 1.13
 
 require (
-	github.com/BurntSushi/toml v0.3.1
-	github.com/Joker/jade v1.0.1-0.20190614124447-d475f43051e7
-	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398
-	github.com/ajg/form v0.0.0-20160802194845-cc2954064ec9
-	github.com/aymerick/raymond v2.0.3-0.20180322193309-b565731e1464+incompatible
-	github.com/davecgh/go-spew v1.1.1
-	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385
-	github.com/fatih/structs v1.1.0
-	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4
-	github.com/gavv/monotime v0.0.0-20171021193802-6f8212e8d10d
-	github.com/google/go-querystring v1.0.0
-	github.com/imkira/go-interpol v1.1.0
-	github.com/iris-contrib/formBinder v0.0.0-20171010160137-ad9fb86c356f
-	github.com/iris-contrib/go.uuid v2.0.0+incompatible
-	github.com/iris-contrib/middleware v0.0.0-20171114084220-1060fbb0ce08
-	github.com/jinzhu/gorm v1.9.1
-	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a
+	github.com/ajg/form v1.5.1 // indirect
+	github.com/asaskevich/govalidator v0.0.0-20190424111038-f61b66f89f4a // indirect
+	github.com/gavv/monotime v0.0.0-20190418164738-30dba4353424 // indirect
+	github.com/google/go-querystring v1.0.0 // indirect
+	github.com/imkira/go-interpol v1.1.0 // indirect
+	github.com/iris-contrib/middleware/cors v0.0.0-20191111233249-6e1f5f92190e
+	github.com/jinzhu/gorm v1.9.11
 	github.com/joho/godotenv v1.3.0
-	github.com/json-iterator/go v1.1.8
-	github.com/juju/errors v0.0.0-20190930114154-d42613fe1ab9
-	github.com/kataras/golog v0.0.9
-	github.com/kataras/iris v11.1.1+incompatible
-	github.com/kataras/iris/v12 v12.0.1 // indirect
-	github.com/kataras/pio v0.0.0-20190103105442-ea782b38602d
-	github.com/klauspost/compress v1.9.1
-	github.com/klauspost/cpuid v0.0.0-20170728055534-ae7887de9fa5
-	github.com/konsorten/go-windows-terminal-sequences v1.0.1
-	github.com/lib/pq v1.0.0
-	github.com/microcosm-cc/bluemonday v1.0.2
-	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
-	github.com/modern-go/reflect2 v1.0.1
-	github.com/moul/http2curl v1.0.0
-	github.com/pmezard/go-difflib v1.0.0
-	github.com/qor/validations v0.0.0-20160314064242-87c1296c75e7
-	github.com/rs/cors v1.6.0
-	github.com/ryanuber/columnize v2.1.1-0.20170703205827-abc90934186a+incompatible
-	github.com/sergi/go-diff v1.0.0
-	github.com/shurcooL/sanitized_anchor_name v1.0.0
-	github.com/sirupsen/logrus v1.1.1
-	github.com/stretchr/testify v1.3.0
-	github.com/valyala/bytebufferpool v1.0.0
-	github.com/valyala/fasthttp v0.0.0-20171207120941-e5f51c11919d
-	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f
-	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415
-	github.com/xeipuuv/gojsonschema v0.0.0-20180816142147-da425ebb7609
-	github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0
-	github.com/yudai/gojsondiff v0.0.0-20170107030110-7b1b7adf999d
-	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82
-	golang.org/x/crypto v0.0.0-20191111213947-16651526fdb4
-	golang.org/x/net v0.0.0-20191109021931-daa7c04131f5
-	golang.org/x/sys v0.0.0-20191110163157-d32e6e3b99c4
-	golang.org/x/text v0.3.2
-	gopkg.in/gavv/httpexpect.v1 v1.0.0-20180803094507-bdde30871313
-	gopkg.in/testfixtures.v2 v2.5.0
-	gopkg.in/yaml.v2 v2.2.5
+	github.com/kataras/iris/v12 v12.0.1
+	github.com/qor/validations v0.0.0-20171228122639-f364bca61b46
+	github.com/sergi/go-diff v1.0.0 // indirect
+	github.com/sirupsen/logrus v1.4.2
+	github.com/valyala/fasthttp v1.6.0 // indirect
+	github.com/xeipuuv/gojsonschema v1.2.0
+	github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0 // indirect
+	github.com/yudai/gojsondiff v1.0.0 // indirect
+	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
+	gopkg.in/gavv/httpexpect.v1 v1.1.1
+	gopkg.in/testfixtures.v2 v2.6.0
+	moul.io/http2curl v1.0.0 // indirect
 )

@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 	"github.com/markelog/pento/back/database"
 	"github.com/markelog/pento/back/env"
 	"github.com/markelog/pento/back/logger"

@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/jinzhu/gorm"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 
 	"github.com/markelog/pento/back/database"
 	"github.com/markelog/pento/back/logger"
@@ -94,7 +94,7 @@ func TestActivePresent(t *testing.T) {
 	json.Object().
 		Value("payload").Object().
 		Value("errors").Array().
-		Elements("active: active is required")
+		Elements("(root): active is required")
 }
 
 func TestSuccess(t *testing.T) {

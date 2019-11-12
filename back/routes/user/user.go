@@ -2,7 +2,7 @@ package user
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 	"github.com/sirupsen/logrus"
 
 	controller "github.com/markelog/pento/back/controllers/user"

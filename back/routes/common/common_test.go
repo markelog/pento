@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/jinzhu/gorm"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 	"github.com/markelog/pento/back/database"
 	"github.com/markelog/pento/back/logger"
 	"github.com/markelog/pento/back/routes/common"
