@@ -4,7 +4,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "prettier": "prettier --ignore-path=.gitignore --write '**/*.js'"
+    "fix": "prettier --ignore-path=.gitignore --write '**/*.js'",
+    "lint": "prettier --ignore-path=.gitignore --check '**/*.js'",
+    "test": "npm run lint"
   },
   "author": "",
   "license": "MIT",
