@@ -1,10 +1,12 @@
 package Track
 
 import (
+	"errors"
 	"time"
 
 	"github.com/jinzhu/gorm"
 
+	"github.com/markelog/pento/back/controllers/user"
 	"github.com/markelog/pento/back/database/models"
 )
 
@@ -36,6 +38,15 @@ func (track *Track) Create(args *CreateArgs) error {
 		err error
 		tx  = track.db.Begin()
 	)
+
+	check, err := user.New(db).Status(args.Email)
+	if err != nil {
+		return err
+	}
+
+	if check.Active == args.Active {
+		return errors.New("User already in that state")
+	}
 
 	if args.Active == true {
 		err = track.start(tx, args)
