@@ -1,6 +1,6 @@
-# Time Tracker [![Build Status](https://travis-ci.org/markelog/pento.svg?branch=master)](https://travis-ci.org/markelog/pento)
+# Pento [![Build Status](https://travis-ci.org/markelog/pento.svg?branch=master)](https://travis-ci.org/markelog/pento)
 
-> this is just for fun kinda situation
+> Time Tracker
 
 ## Intro
 
@@ -13,7 +13,7 @@ In order to check out this project you need to open to terminal sessions, one fo
 ### Back
 Requires installed `docker` stuff, `make` and `Go` language on your machine
 ```
-$ cd back && cp .env.example .env && make install dev
+$ cd back && cp .env.example .env && make dev
 ```
 
 ### Front
