@@ -1,4 +1,4 @@
-# Pento [![Build Status](https://travis-ci.org/markelog/pento.svg?branch=master)](https://travis-ci.org/markelog/pento)
+# Pento [![Build Status](https://travis-ci.com/markelog/pento.svg?branch=master)](https://travis-ci.com/markelog/pento)
 
 > Time Tracker
 
